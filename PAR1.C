@@ -1,0 +1,66 @@
+//parity
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void main()
+{
+	FILE *fp,*fp1;
+	int i,col,n=0,ct=0,*matrix;
+	char c;
+	printf("\n\n");
+	fp=fopen("parin.txt","w");
+	while((c=getchar())!=EOF)
+	{
+		fputc(c,fp);
+		i=ftell(fp);
+	}
+	fclose(fp);
+	col=(int)(i/4);
+	matrix=(int*)malloc(col*sizeof(int));
+	for(n=0;n<col;n++)
+		matrix[n]=0;
+	n=0;
+	fp=fopen("parin.txt","r");
+	fp1=fopen("parinter.txt","w");
+	while((c=fgetc(fp))!=EOF)
+	{
+		ct=0;
+		n=0;
+		while(ct<=3)
+		{
+		    if(c=='1')
+		    {
+			n++;
+			matrix[ct]++;
+		    }
+		    ct++;
+		    fputc(c,fp1);
+		    c=fgetc(fp);
+		}
+		if(n%2==0)
+		{
+			fputc('0',fp1);
+		}
+		else
+		{
+			fputc('1',fp1);
+		}
+		ungetc(c,fp);
+	}
+	fclose(fp1);
+	fclose(fp);
+	fp1=fopen("parinter.txt","a");
+	for(n=0;n<col;n++)
+	{
+		printf("\n%d\n",matrix[n]);
+		if(matrix[n]%2==0)
+		{
+			fputc('0',fp1);
+		}
+		else if(matrix[n]%2==1)
+		{
+			fputc('1',fp1);
+		}
+	}
+	fclose(fp1);
+}
