@@ -1,7 +1,7 @@
 # ComputerNetworks
 Implementation of Computer Networks Algorithms
 
-### List of Programs -
+#### List of Programs -
 1. Bit Stuffing
 2. Byte Stuffing
 3. Broadcasting
@@ -12,4 +12,4 @@ Implementation of Computer Networks Algorithms
 8. Parity
 9. Physical Layer Code Violation
 
-## Language - C
+#### Language - C
